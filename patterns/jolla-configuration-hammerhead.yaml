@@ -21,6 +21,14 @@ Requires:
 # 3rd party accounts like Twitter, VK, cloud services, etc
 - jolla-settings-accounts-extensions-3rd-party-all
 
+# Jolla Store 
+- store-client
+- jolla-settings-accounts-extensions-jolla
+
+#Missing packages in 2.1.1.24
+- jolla-settings-accounts-extensions-jabber
+- jolla-settings-system-sideloading
+
 # For Mozilla location services (online)
 - geoclue-provider-mlsdb
 
