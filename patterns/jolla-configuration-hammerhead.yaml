@@ -29,6 +29,9 @@ Requires:
 - jolla-settings-accounts-extensions-jabber
 - jolla-settings-system-sideloading
 
+#Missin packages in 2.1.2.3
+- patterns-sailfish-consumer-generic
+
 # For Mozilla location services (online)
 - geoclue-provider-mlsdb
 
