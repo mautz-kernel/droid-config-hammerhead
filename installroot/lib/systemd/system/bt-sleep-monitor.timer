@@ -1,0 +1,9 @@
+[Unit]
+Description=Delay start of minimecs bt-sleep-monitor script to avoid getting wrong bluetooth value on startup
+
+[Timer]
+OnStartupSec=30sec
+Unit=bt-sleep-monitor.service
+
+[Install]
+WantedBy=multi-user.target

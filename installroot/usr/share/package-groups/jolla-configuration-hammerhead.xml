@@ -1,0 +1,25 @@
+<pattern xmlns:rpm="http://linux.duke.edu/metadata/rpm" xmlns="http://novell.com/package/metadata/suse/pattern">
+  <name>jolla-configuration-hammerhead</name>
+  <version ver="1" epoch="0" rel="1"/>
+  <summary>Jolla Configuration hammerhead</summary>
+  <description>Pattern with packages for hammerhead configurations</description>
+  <uservisible/>
+  <category lang="en">Base Group</category>
+  <rpm:requires>
+    <rpm:entry name="pattern:jolla-hw-adaptation-hammerhead"/>
+    <rpm:entry name="pattern:jolla-sailfish-applications"/>
+    <rpm:entry name="pattern:jolla-ui-wayland"/>
+    <rpm:entry name="pattern:jolla-sailfish-cellular-apps"/>
+    <rpm:entry name="pattern:sailfish-porter-tools"/>
+    <rpm:entry name="sailfish-content-graphics-z2.0"/>
+    <rpm:entry name="jolla-settings-accounts-extensions-3rd-party-all"/>
+    <rpm:entry name="store-client"/>
+    <rpm:entry name="jolla-settings-accounts-extensions-jolla"/>
+    <rpm:entry name="jolla-settings-accounts-extensions-jabber"/>
+    <rpm:entry name="jolla-settings-system-sideloading"/>
+    <rpm:entry name="patterns-sailfish-consumer-generic"/>
+    <rpm:entry name="geoclue-provider-mlsdb"/>
+    <rpm:entry name="csd"/>
+    <rpm:entry name="mapplauncherd-booster-silica-qt5-media"/>
+  </rpm:requires>
+</pattern>

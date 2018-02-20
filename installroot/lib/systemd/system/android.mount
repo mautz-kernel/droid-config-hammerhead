@@ -1,0 +1,14 @@
+[Unit]
+Description=Mount for Android in /android
+Before=local-fs.target systemd-modules-load.service
+
+[Mount]
+What=/dev/mmcblk0p28
+Where=/android
+Type=ext4
+Options=rw,relatime,data=ordered
+
+TimeoutSec=5
+
+[Install]
+WantedBy=local-fs.target

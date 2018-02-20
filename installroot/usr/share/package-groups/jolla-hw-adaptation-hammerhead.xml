@@ -1,0 +1,46 @@
+<pattern xmlns:rpm="http://linux.duke.edu/metadata/rpm" xmlns="http://novell.com/package/metadata/suse/pattern">
+  <name>jolla-hw-adaptation-hammerhead</name>
+  <version ver="1" epoch="0" rel="1"/>
+  <summary>Jolla HW Adaptation hammerhead</summary>
+  <description>Pattern with packages for hammerhead HW Adaptation</description>
+  <uservisible/>
+  <category lang="en">Base Group</category>
+  <rpm:requires>
+    <rpm:entry name="droid-hal-hammerhead"/>
+    <rpm:entry name="droid-hal-hammerhead-img-boot"/>
+    <rpm:entry name="droid-hal-hammerhead-kernel-modules"/>
+    <rpm:entry name="droid-config-hammerhead-sailfish"/>
+    <rpm:entry name="droid-config-hammerhead-pulseaudio-settings"/>
+    <rpm:entry name="droid-config-hammerhead-policy-settings"/>
+    <rpm:entry name="droid-config-hammerhead-preinit-plugin"/>
+    <rpm:entry name="droid-config-hammerhead-flashing"/>
+    <rpm:entry name="droid-config-hammerhead-bluez4"/>
+    <rpm:entry name="droid-hal-version-hammerhead"/>
+    <rpm:entry name="libhybris-libEGL"/>
+    <rpm:entry name="libhybris-libGLESv2"/>
+    <rpm:entry name="libhybris-libwayland-egl"/>
+    <rpm:entry name="hybris-libsensorfw-qt5"/>
+    <rpm:entry name="ngfd-plugin-droid-vibrator"/>
+    <rpm:entry name="qt5-feedback-haptics-droid-vibrator"/>
+    <rpm:entry name="qt5-plugin-generic-evdev"/>
+    <rpm:entry name="pulseaudio-modules-droid-glue"/>
+    <rpm:entry name="qt5-qtmultimedia-plugin-mediaservice-gstmediacapture"/>
+    <rpm:entry name="qt5-qtwayland-wayland_egl"/>
+    <rpm:entry name="qt5-qpa-hwcomposer-plugin"/>
+    <rpm:entry name="qtscenegraph-adaptation"/>
+    <rpm:entry name="gstreamer1.0"/>
+    <rpm:entry name="gstreamer1.0-plugins-good"/>
+    <rpm:entry name="gstreamer1.0-plugins-base"/>
+    <rpm:entry name="gstreamer1.0-plugins-bad"/>
+    <rpm:entry name="nemo-gstreamer1.0-interfaces"/>
+    <rpm:entry name="gstreamer1.0-droid"/>
+    <rpm:entry name="mce-plugin-libhybris"/>
+    <rpm:entry name="usb-moded"/>
+    <rpm:entry name="usb-moded-defaults-android"/>
+    <rpm:entry name="usb-moded-developer-mode-android"/>
+    <rpm:entry name="usb-moded-connection-sharing-android-config"/>
+    <rpm:entry name="rfkill"/>
+    <rpm:entry name="jolla-devicelock-plugin-encsfa"/>
+    <rpm:entry name="geoclue-provider-hybris"/>
+  </rpm:requires>
+</pattern>

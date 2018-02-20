@@ -1,0 +1,9 @@
+[Unit]
+Description=Run hciattach when HCI UART device becomes available
+ConditionPathExists=/data/property/persist.service.bdroid.bdaddr
+ConditionPathExists=/system/vendor/firmware
+
+[Service]
+Type=forking
+ExecStartPre=/usr/sbin/rfkill unblock bluetooth
+ExecStart=/usr/sbin/hciattach -f /system/vendor/firmware ttyHS99 bcm43xx 4000000 flow sleep /data/property/persist.service.bdroid.bdaddr

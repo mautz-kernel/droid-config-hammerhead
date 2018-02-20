@@ -1,0 +1,20 @@
+<pattern xmlns:rpm="http://linux.duke.edu/metadata/rpm" xmlns="http://novell.com/package/metadata/suse/pattern">
+  <name>sailfish-porter-tools</name>
+  <version ver="1" epoch="0" rel="1"/>
+  <summary>Sailfish OS Porter Tools</summary>
+  <description>Pattern with packages for common debugging tools used by porters</description>
+  <uservisible/>
+  <category lang="en">Base Group</category>
+  <rpm:requires>
+    <rpm:entry name="jolla-developer-mode"/>
+    <rpm:entry name="sailfishsilica-qt5-demos"/>
+    <rpm:entry name="libhybris-tests"/>
+    <rpm:entry name="busybox-static"/>
+    <rpm:entry name="net-tools"/>
+    <rpm:entry name="openssh-clients"/>
+    <rpm:entry name="openssh-server"/>
+    <rpm:entry name="vim-enhanced"/>
+    <rpm:entry name="zypper"/>
+    <rpm:entry name="jolla-rnd-device"/>
+  </rpm:requires>
+</pattern>
