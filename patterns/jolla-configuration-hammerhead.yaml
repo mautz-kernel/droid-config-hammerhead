@@ -5,10 +5,10 @@ Description: Pattern with packages for hammerhead configurations
 Name: jolla-configuration-hammerhead
 Requires:
 - pattern:jolla-hw-adaptation-hammerhead
-- pattern:jolla-sailfish-applications
-- pattern:jolla-ui-wayland
+- patterns-sailfish-applications
+- patterns-sailfish-ui
 # For devices with cellular modem. Those without one, please comment out:
-- pattern:jolla-sailfish-cellular-apps
+- patterns-sailfish-cellular-apps
 # Early stages of porting benefit from these:
 - pattern:sailfish-porter-tools
 
