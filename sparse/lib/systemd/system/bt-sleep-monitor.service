@@ -3,5 +3,9 @@ Description=Start Minimecs bt-sleep-monitor script at startup
 
 [Service]
 Type=idle
-ExecStart=/usr/bin/bt-sleep-monitor.sh
+ExecStart=/usr/bin/bt-sleep-monitor start
+ExecStop=/usr/bin/bt-sleep-monitor stop
 RemainAfterExit=yes
+
+[Install]
+WantedBy=basic.target
