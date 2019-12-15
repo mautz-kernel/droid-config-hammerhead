@@ -1,12 +1,15 @@
 # DisplayName: Jolla hammerhead/@ARCH@ (release) 1
 # KickstartType: release
+# DeviceModel: hammerhead
+# DeviceVariant: hammerhead
+# Brand: Jolla
 # SuggestedImageType: fs
 # SuggestedArchitecture: armv7hl
 
 timezone --utc UTC
+lang en_US.UTF-8
 keyboard us
 user --name nemo --groups audio,input,video --password nemo
-lang en_US.UTF-8
 
 ### Commands from /tmp/sandbox/usr/share/ssu/kickstart/part/default
 part / --size 500 --ondisk sda --fstype=ext4
@@ -15,6 +18,7 @@ part / --size 500 --ondisk sda --fstype=ext4
 
 repo --name=adaptation-community-common-hammerhead-@RELEASE@ --baseurl=http://repo.merproject.org/obs/nemo:/devel:/hw:/common/sailfish_latest_@ARCH@/
 repo --name=apps-@RELEASE@ --baseurl=https://releases.jolla.com/jolla-apps/@RELEASE@/@ARCH@/
+repo --name=customer-jolla-@RELEASE@ --baseurl=https://releases.jolla.com/features/@RELEASE@/customers/jolla/@ARCH@/
 repo --name=hotfixes-@RELEASE@ --baseurl=https://releases.jolla.com/releases/@RELEASE@/hotfixes/@ARCH@/
 repo --name=jolla-@RELEASE@ --baseurl=https://releases.jolla.com/releases/@RELEASE@/jolla/@ARCH@/
 
@@ -88,18 +92,42 @@ else
     ssu mode 4
 fi
 ### end 60_ssu
+### begin 70_sdk-domain
+
+export SSU_DOMAIN=@RNDFLAVOUR@
+
+if [ "$SSU_RELEASE_TYPE" = "release" ] && [[ "$SSU_DOMAIN" = "public-sdk" ]];
+then
+    ssu domain sailfish
+fi
+### end 70_sdk-domain
+### begin 90_accept_unsigned_packages
+sed -i /etc/zypp/zypp.conf \
+    -e '/^# pkg_gpgcheck =/ c \
+# Modified by kickstart. See sdk-configs sources\
+pkg_gpgcheck = off
+'
+### end 90_accept_unsigned_packages
+### begin 90_zypper_skip_check_access_deleted
+sed -i /etc/zypp/zypper.conf \
+    -e '/^# *psCheckAccessDeleted =/ c \
+# Modified by kickstart. See sdk-configs sources\
+psCheckAccessDeleted = no
+'
+### end 90_zypper_skip_check_access_deleted
 %end
 
 %post --nochroot
 export SSU_RELEASE_TYPE=release
-### begin 01_release
-if [ -n "$IMG_NAME" ]; then
-    echo "BUILD: $IMG_NAME" >> $INSTALL_ROOT/etc/meego-release
-fi
-### end 01_release
-### begin hammerhead
-cp $INSTALL_ROOT/etc/sailfish-release $IMG_OUT_DIR
-### end hammerhead
+### begin 50_os-release
+(
+CUSTOMERS=$(find $INSTALL_ROOT/usr/share/ssu/features.d -name 'customer-*.ini' \
+    |xargs --no-run-if-empty sed -n 's/^name[[:space:]]*=[[:space:]]*//p')
+
+cat $INSTALL_ROOT/etc/os-release
+echo "SAILFISH_CUSTOMER=\"${CUSTOMERS//$'\n'/ }\""
+) > $IMG_OUT_DIR/os-release
+### end 50_os-release
 %end
 
 %pack
@@ -109,7 +137,7 @@ pushd $IMG_OUT_DIR
 
 DEVICE=hammerhead
 
-VERSION_FILE=./sailfish-release
+VERSION_FILE=./os-release
 source $VERSION_FILE
 
 # Locate rootfs tar.bz2 archive.

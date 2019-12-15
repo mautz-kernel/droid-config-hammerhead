@@ -1,2 +1,8 @@
+/etc/bluez5/bluetooth/main.conf
+/etc/bluez5/bluetooth/input.conf
+/etc/bluez5/bluetooth/jolla.conf
+/etc/bluez5/bluetooth/network.conf
+/etc/bluez5/bluetooth/exclude.conf
 /etc/pulse/bluez5_stream_restore.pa
+/etc/pulse/xpolicy.conf.d/bluez5_earpiece.conf
 /etc/pulse/xpolicy.conf.d/bluez5.conf

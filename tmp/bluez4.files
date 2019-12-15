@@ -1,2 +1,10 @@
 /etc/pulse/bluez4_stream_restore.pa
+/etc/pulse/xpolicy.conf.d/bluez4_earpiece.conf
 /etc/pulse/xpolicy.conf.d/bluez4.conf
+/etc/bluez4/bluetooth/main.conf
+/etc/bluez4/bluetooth/input.conf
+/etc/bluez4/bluetooth/audio.conf
+/etc/bluez4/bluetooth/jolla.conf
+/etc/bluez4/bluetooth/rfcomm.conf
+/etc/bluez4/bluetooth/serial.conf
+/etc/bluez4/bluetooth/network.conf
